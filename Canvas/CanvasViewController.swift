@@ -36,14 +36,12 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func didPanTary(_ sender: UIPanGestureRecognizer) {
-       // let location = sender.location(in: view)
         let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
         UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
                        animations: { () -> Void in
                         self.trayView.center = self.trayDown
             }, completion: nil)
-        
         
         if sender.state == .began {
             print("Gesture began")
@@ -67,8 +65,6 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
-        //let location = sender.location(in: view)
-        //let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
 
         if sender.state == .began {
@@ -81,13 +77,21 @@ class CanvasViewController: UIViewController {
             newlyCreatedFace.isUserInteractionEnabled = true
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(newPanFace(sender:)))
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
-
+            
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTwice(sender:)))
+            tapGestureRecognizer.numberOfTapsRequired = 2
+            newlyCreatedFace.addGestureRecognizer(tapGestureRecognizer)
+            
         } else if sender.state == .changed {
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
 
         } else if sender.state == .ended {
-            
         }
+    }
+    
+    func tapTwice(sender: UITapGestureRecognizer){
+    newlyCreatedFace = sender.view as! UIImageView
+    newlyCreatedFace.removeFromSuperview()
     }
     
     func newPanFace(sender: UIPanGestureRecognizer) {
@@ -95,7 +99,6 @@ class CanvasViewController: UIViewController {
         
         if sender.state == .began {
             print("Gesture began")
-           
             newlyCreatedFace = sender.view as! UIImageView // to get the face that we panned on.
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
             UIView.animate(withDuration:0.1, animations: {
@@ -104,13 +107,11 @@ class CanvasViewController: UIViewController {
         } else if sender.state == .changed {
             print("Gesture is changing")
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
-
         } else if sender.state == .ended {
             print("Gesture ended")
             UIView.animate(withDuration:0.1, animations: {
                 self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 },completion: nil)
-
         }
     }
     

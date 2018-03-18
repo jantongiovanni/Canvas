@@ -83,6 +83,10 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="YES-Ty-9PG" appends="YES" id="HC9-lu-MMn"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="trayView" destination="CIV-gG-8O4" id="tdp-Hm-iif"/>
@@ -124,6 +128,7 @@
                         <action selector="didPanFace:" destination="BYZ-38-t0r" id="D3c-g5-g5o"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="YES-Ty-9PG"/>
             </objects>
             <point key="canvasLocation" x="117.39130434782609" y="123.09782608695653"/>
         </scene>
