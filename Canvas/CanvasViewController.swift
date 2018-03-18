@@ -36,7 +36,7 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func didPanTary(_ sender: UIPanGestureRecognizer) {
-        let location = sender.location(in: view)
+       // let location = sender.location(in: view)
         let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
         UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
@@ -67,12 +67,12 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
-        let location = sender.location(in: view)
-        let velocity = sender.velocity(in: view)
+        //let location = sender.location(in: view)
+        //let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
 
         if sender.state == .began {
-            var imageView = sender.view as! UIImageView
+            let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             view.addSubview(newlyCreatedFace)
             newlyCreatedFace.center = imageView.center
@@ -95,14 +95,22 @@ class CanvasViewController: UIViewController {
         
         if sender.state == .began {
             print("Gesture began")
+           
             newlyCreatedFace = sender.view as! UIImageView // to get the face that we panned on.
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
+            UIView.animate(withDuration:0.1, animations: {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                },completion: nil)
         } else if sender.state == .changed {
             print("Gesture is changing")
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
 
         } else if sender.state == .ended {
             print("Gesture ended")
+            UIView.animate(withDuration:0.1, animations: {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                },completion: nil)
+
         }
     }
     
