@@ -39,7 +39,10 @@ class CanvasViewController: UIViewController {
         let location = sender.location(in: view)
         let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
-        
+        UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
+                       animations: { () -> Void in
+                        self.trayView.center = self.trayDown
+            }, completion: nil)
         
         
         if sender.state == .began {
