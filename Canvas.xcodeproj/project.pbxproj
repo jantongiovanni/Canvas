@@ -99,10 +99,10 @@
 		D829C08B205F0FE60001F766 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				D829C08C205F0FE60001F766 /* AppDelegate.swift */,
-				D829C08E205F0FE60001F766 /* ViewController.swift */,
 				D829C090205F0FE60001F766 /* Main.storyboard */,
 				D829C0BA205F12050001F766 /* CanvasViewController.swift */,
+				D829C08C205F0FE60001F766 /* AppDelegate.swift */,
+				D829C08E205F0FE60001F766 /* ViewController.swift */,
 				D829C093205F0FE60001F766 /* Assets.xcassets */,
 				D829C095205F0FE60001F766 /* LaunchScreen.storyboard */,
 				D829C098205F0FE60001F766 /* Info.plist */,
