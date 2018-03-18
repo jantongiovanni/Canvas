@@ -16,10 +16,14 @@ class CanvasViewController: UIViewController {
     var trayDown: CGPoint!
     var newlyCreatedFace: UIImageView!
     var newlyCreatedFaceOriginalCenter: CGPoint!
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanTary(_:)))
+        trayView.addGestureRecognizer(panGestureRecognizer)
+        
         trayDownOffset = 160
         trayUp = trayView.center
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
@@ -71,11 +75,31 @@ class CanvasViewController: UIViewController {
             newlyCreatedFace.center = imageView.center
             newlyCreatedFace.center.y += trayView.frame.origin.y
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            newlyCreatedFace.isUserInteractionEnabled = true
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(newPanFace(sender:)))
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+
         } else if sender.state == .changed {
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
 
         } else if sender.state == .ended {
             
+        }
+    }
+    
+    func newPanFace(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        
+        if sender.state == .began {
+            print("Gesture began")
+            newlyCreatedFace = sender.view as! UIImageView // to get the face that we panned on.
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
+        } else if sender.state == .changed {
+            print("Gesture is changing")
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+
+        } else if sender.state == .ended {
+            print("Gesture ended")
         }
     }
     
