@@ -14,6 +14,7 @@
 		D829C097205F0FE60001F766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D829C095205F0FE60001F766 /* LaunchScreen.storyboard */; };
 		D829C0A2205F0FE70001F766 /* CanvasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0A1205F0FE70001F766 /* CanvasTests.swift */; };
 		D829C0AD205F0FE70001F766 /* CanvasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0AC205F0FE70001F766 /* CanvasUITests.swift */; };
+		D829C0BB205F12050001F766 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BA205F12050001F766 /* CanvasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D829C0A8205F0FE70001F766 /* CanvasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D829C0AC205F0FE70001F766 /* CanvasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasUITests.swift; sourceTree = "<group>"; };
 		D829C0AE205F0FE70001F766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D829C0BA205F12050001F766 /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				D829C08C205F0FE60001F766 /* AppDelegate.swift */,
 				D829C08E205F0FE60001F766 /* ViewController.swift */,
 				D829C090205F0FE60001F766 /* Main.storyboard */,
+				D829C0BA205F12050001F766 /* CanvasViewController.swift */,
 				D829C093205F0FE60001F766 /* Assets.xcassets */,
 				D829C095205F0FE60001F766 /* LaunchScreen.storyboard */,
 				D829C098205F0FE60001F766 /* Info.plist */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D829C08F205F0FE60001F766 /* ViewController.swift in Sources */,
+				D829C0BB205F12050001F766 /* CanvasViewController.swift in Sources */,
 				D829C08D205F0FE60001F766 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +509,7 @@
 				D829C0B3205F0FE70001F766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D829C0B4205F0FE70001F766 /* Build configuration list for PBXNativeTarget "CanvasTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				D829C0B6205F0FE70001F766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D829C0B7205F0FE70001F766 /* Build configuration list for PBXNativeTarget "CanvasUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				D829C0B9205F0FE70001F766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
